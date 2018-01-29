@@ -1,0 +1,51 @@
+{
+  "name": "deep-redact",
+  "version": "1.0.0",
+  "description": "Deep object redaction",
+  "main": "dist/deep-redact.js",
+  "browser": "dist/deep-redact.umd.js",
+  "module": "dist/deep-redact.es.js",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle",
+    "precommit": "lint-staged",
+    "prepublish": "npm run build",
+    "pretest": "npm run build",
+    "test": "node test",
+    "release":
+      "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "keywords": ["redact", "redaction", "deep redact", "deep redaction"],
+  "files": ["index.js", "dist"],
+  "author": "Brian Wendt <brianwendt@outlook.com> (https://bwendt.com)",
+  "license": "MIT",
+  "repository": "whiskeredwonder/deep-redact",
+  "devDependencies": {
+    "husky": "0.14.3",
+    "lint-staged": "6.1.0",
+    "microbundle": "0.4.3",
+    "prettier": "1.10.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": ["prettier"]
+  },
+  "lint-staged": {
+    "*.{js,json}": ["prettier --write", "git add"]
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "jsxBracketSameLine": true,
+    "semi": false,
+    "singleQuote": true
+  }
+}
