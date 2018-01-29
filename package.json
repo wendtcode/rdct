@@ -1,7 +1,7 @@
 {
   "name": "deep-redact",
-  "version": "1.0.0",
-  "description": "Deep object redaction",
+  "version": "1.1.0",
+  "description": ":small_orange_diamond: Deeply redact all the things",
   "main": "dist/deep-redact.js",
   "browser": "dist/deep-redact.umd.js",
   "module": "dist/deep-redact.es.js",

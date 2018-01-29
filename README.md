@@ -1,6 +1,6 @@
 # `deepRedact(obj)` [![NPM](https://img.shields.io/npm/v/deep-redact.svg)](https://npmjs.com/package/dlv) [![Build](https://travis-ci.org/whiskeredwonder/deep-redact.svg?branch=master)](https://travis-ci.org/whiskeredwonder/deep-redact)
 
-> Deeply redact things
+> :small_orange_diamond: Deeply redact all the things
 
 
 ### Installation
