@@ -1,4 +1,4 @@
-# `deepRedact(obj)` [![NPM](https://img.shields.io/npm/v/deep-redact.svg)](https://npmjs.com/package/dlv)
+# `deepRedact(obj)` [![NPM](https://img.shields.io/npm/v/deep-redact.svg)](https://npmjs.com/package/deep-redact)
 
 > Deeply redact all the things
 
