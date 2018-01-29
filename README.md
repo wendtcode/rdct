@@ -1,4 +1,4 @@
-# `deepRedact(obj)` [![NPM](https://img.shields.io/npm/v/deep-redact.svg)](https://npmjs.com/package/dlv) [![Build](https://travis-ci.org/developit/dlv.svg?branch=master)](https://travis-ci.org/whiskeredwonder/deep-redact)
+# `deepRedact(obj)` [![NPM](https://img.shields.io/npm/v/deep-redact.svg)](https://npmjs.com/package/dlv) [![Build](https://travis-ci.org/whiskeredwonder/deep-redact.svg?branch=master)](https://travis-ci.org/whiskeredwonder/deep-redact)
 
 > Deeply redact things
 
@@ -57,5 +57,3 @@ console.log(deepRedact(obj));
 // }
 
 ```
-
-[tests]: https://github.com/whiskeredwonder/deep-redact/blob/master/test.js
