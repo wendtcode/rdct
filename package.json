@@ -9,7 +9,7 @@
     "dev": "microbundle watch",
     "build": "microbundle",
     "precommit": "lint-staged",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "pretest": "npm run build",
     "test": "mocha",
     "release":
