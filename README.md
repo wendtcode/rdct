@@ -3,12 +3,12 @@
 Deeply redact all the things
 
 
-### Installation
+## Installation
 
 `npm install --save rdct`
 
 
-### Usage
+## Usage
 
 `redact(object)`
 
@@ -58,9 +58,9 @@ console.log(redact(obj, {includeType: true, min: 3}));
 
 ```
 
-### Options
+## Options
 
-#### includeType
+### includeType
 
 ```js
 redact('lorem ipsum', {includeType: true}) // l*********m [String]
@@ -68,7 +68,7 @@ redact(123.4222, {includeType: true}) // 1**.***2 [Number]
 redact(false, {includeType: true}) // ******* [Boolean]
 ```
 
-#### char
+### char
 
 ```js
 redact('lorem ipsum', {char: '?'}) // l?????????m
@@ -76,7 +76,7 @@ redact(123.4222, {char: '^'}) // 1^^.^^^2
 redact(false, {char: '!'}) // !!!!!!!
 ```
 
-#### min
+### min
 ```js
 redact('lorem ipsum', {min: 15}) // ***************
 redact(123, {min: 3}) // 1*3

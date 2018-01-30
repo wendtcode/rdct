@@ -1,11 +1,3 @@
-/**
- * Deeply redact all the things
- * @param {*} obj
- * @param {Object} [options]
- * @param {bool} [options.includeType=false]
- * @param {number} [options.min=5]
- * @param {string} [options.char=*]
- */
 export default function rdct(obj, options) {
   options = options || {}
   const type = Object.prototype.toString.call(obj).slice(8, -1)
