@@ -1,19 +1,19 @@
-# `deepRedact( obj [, options] )` [![NPM](https://img.shields.io/npm/v/deep-redact.svg)](https://npmjs.com/package/deep-redact) [![Build](https://travis-ci.org/whiskeredwonder/deep-redact.svg?branch=master)](https://travis-ci.org/whiskeredwonder/deep-redact)
+# redact( obj [, options] ) [![NPM](https://img.shields.io/npm/v/rdct.svg)](https://npmjs.com/package/rdct) [![Build](https://travis-ci.org/whiskeredwonder/rdct.svg?branch=master)](https://travis-ci.org/whiskeredwonder/rdct)
 
-> Deeply redact all the things
+Deeply redact all the things
 
 
 ### Installation
 
-`npm install --save deep-redact`
+`npm install --save rdct`
 
 
 ### Usage
 
-`deepRedact(object)`
+`redact(object)`
 
 ```js
-import deepRedact from 'deep-redact';
+import redact from 'rdct';
 
 let obj = {
     nested: {
@@ -28,7 +28,7 @@ let obj = {
     }
 };
 
-console.log(deepRedact(obj, {includeType: true, min: 3}));
+console.log(redact(obj, {includeType: true, min: 3}));
 // {
 //   nested: {
 //     arr: [
@@ -63,22 +63,22 @@ console.log(deepRedact(obj, {includeType: true, min: 3}));
 #### includeType
 
 ```js
-deepRedact('lorem ipsum', {includeType: true}) // l*********m [String]
-deepRedact(123.4222, {includeType: true}) // 1**.***2 [Number]
-deepRedact(false, {includeType: true}) // ******* [Boolean]
+redact('lorem ipsum', {includeType: true}) // l*********m [String]
+redact(123.4222, {includeType: true}) // 1**.***2 [Number]
+redact(false, {includeType: true}) // ******* [Boolean]
 ```
 
 #### char
 
 ```js
-deepRedact('lorem ipsum', {char: '?'}) // l?????????m
-deepRedact(123.4222, {char: '^'}) // 1^^.^^^2
-deepRedact(false, {char: '!'}) // !!!!!!!
+redact('lorem ipsum', {char: '?'}) // l?????????m
+redact(123.4222, {char: '^'}) // 1^^.^^^2
+redact(false, {char: '!'}) // !!!!!!!
 ```
 
 #### min
 ```js
-deepRedact('lorem ipsum', {min: 15}) // ***************
-deepRedact(123, {min: 3}) // 1*3
-deepRedact(true, {min: 2}) // ******* (Boolean disallows `min` less than 7)
+redact('lorem ipsum', {min: 15}) // ***************
+redact(123, {min: 3}) // 1*3
+redact(true, {min: 2}) // ******* (Boolean disallows `min` less than 7)
 ```

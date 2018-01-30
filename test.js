@@ -1,78 +1,78 @@
 const chai = require('chai')
 const {expect} = chai
 
-const deepRedact = require('.')
+const rdct = require('.')
 
-describe('deepRedact()', () => {
+describe('rdct()', () => {
   context('no options', () => {
     it('short string', () => {
-      expect(deepRedact('foo')).to.equal('*****')
+      expect(rdct('foo')).to.equal('*****')
     })
     it('longer string', () => {
-      expect(deepRedact('lorem ipsum')).to.equal('l*********m')
+      expect(rdct('lorem ipsum')).to.equal('l*********m')
     })
     it('whole number', () => {
-      expect(deepRedact(1234567)).to.equal('1*****7')
+      expect(rdct(1234567)).to.equal('1*****7')
     })
     it('fractional number', () => {
-      expect(deepRedact(123.456)).to.equal('1**.**6')
+      expect(rdct(123.456)).to.equal('1**.**6')
     })
     it('negative number', () => {
-      expect(deepRedact(-987654)).to.equal('-9****4')
+      expect(rdct(-987654)).to.equal('-9****4')
     })
     it('boolean true', () => {
-      expect(deepRedact(true)).to.equal('*******')
+      expect(rdct(true)).to.equal('*******')
     })
     it('boolean false', () => {
-      expect(deepRedact(false)).to.equal('*******')
+      expect(rdct(false)).to.equal('*******')
     })
     it('simple objects', () => {
       let obj = {foo: 'bar', baz: 'lorem ipsum'}
       let expected = {foo: '*****', baz: 'l*********m'}
-      let result = deepRedact(obj)
+      let result = rdct(obj)
       expect(result).to.eql(expected)
     })
     it('nested objects', () => {
       let obj = {foo: {bar: 'baz'}}
       let expected = {foo: {bar: '*****'}}
-      let result = deepRedact(obj)
+      let result = rdct(obj)
       expect(result).to.eql(expected)
     })
     it('null', () => {
-      expect(deepRedact(null)).to.equal(null)
+      expect(rdct(null)).to.equal(null)
     })
     it('undefined', () => {
-      expect(deepRedact(void 0)).to.equal(void 0)
+      expect(rdct(void 0)).to.equal(void 0)
     })
     it('array of short strings', () => {
-      expect(deepRedact(['foo', 'bar'])).to.eql(['*****', '*****'])
+      expect(rdct(['foo', 'bar'])).to.eql(['*****', '*****'])
     })
     it('array of longer strings', () => {
-      expect(deepRedact(['lorem ipsum', 'bacon ipsum'])).to.eql([
+      expect(rdct(['lorem ipsum', 'bacon ipsum'])).to.eql([
         'l*********m',
         'b*********m'
       ])
     })
     it('array of whole numbers', () => {
-      expect(deepRedact([1234567, 9876543])).to.eql(['1*****7', '9*****3'])
+      expect(rdct([1234567, 9876543])).to.eql(['1*****7', '9*****3'])
     })
     it('array of fractional numbers', () => {
-      expect(deepRedact([1234.567, 987.6543])).to.eql(['1***.**7', '9**.***3'])
+      expect(rdct([1234.567, 987.6543])).to.eql(['1***.**7', '9**.***3'])
     })
     it('array of negative numbers', () => {
-      expect(deepRedact([-1234567, -9876543])).to.eql(['-1*****7', '-9*****3'])
+      expect(rdct([-1234567, -9876543])).to.eql(['-1*****7', '-9*****3'])
     })
     it('array of boolean trues', () => {
-      expect(deepRedact([true, true])).to.eql(['*******', '*******'])
+      expect(rdct([true, true])).to.eql(['*******', '*******'])
     })
     it('array of boolean falses', () => {
-      expect(deepRedact([false, false])).to.eql(['*******', '*******'])
+      expect(rdct([false, false])).to.eql(['*******', '*******'])
     })
     it('array of nulls', () => {
-      expect(deepRedact([null, null])).to.eql([null, null])
+      expect(rdct([null, null])).to.eql([null, null])
     })
     it('array of undefineds', () => {
-      expect(deepRedact([void 0, void 0])).to.eql([void 0, void 0])
+      expect(rdct([void 0, void 0])).to.eql([void 0, void 0])
     })
     it('array of simple objects', () => {
       let input = [
@@ -83,26 +83,26 @@ describe('deepRedact()', () => {
         {foo: '*****', baz: 'l*********m'},
         {foo2: '*****', baz2: 'b*********m'}
       ]
-      let result = deepRedact(input)
+      let result = rdct(input)
       expect(result).to.eql(expected)
     })
     it('array of nested objects', () => {
       let input = [{foo: {bar: 'baz'}}, {foo2: {bar: 'bacon ipsum'}}]
       let expected = [{foo: {bar: '*****'}}, {foo2: {bar: 'b*********m'}}]
-      let result = deepRedact(input)
+      let result = rdct(input)
       expect(result).to.eql(expected)
     })
     it('array of mixed types', () => {
       let input = ['foo', 1234567, {bar: 'bacon ipsum'}, false]
       let expected = ['*****', '1*****7', {bar: 'b*********m'}, '*******']
-      let result = deepRedact(input)
+      let result = rdct(input)
       expect(result).to.eql(expected)
     })
   })
   context('with `min` option (below default)', () => {
     let redact
     beforeEach(() => {
-      redact = input => deepRedact(input, {min: 3})
+      redact = input => rdct(input, {min: 3})
     })
     it('short string', () => {
       expect(redact('foo')).to.equal('f*o')
@@ -201,7 +201,7 @@ describe('deepRedact()', () => {
   context('with `min` option (above default)', () => {
     let redact
     beforeEach(() => {
-      redact = input => deepRedact(input, {min: 10})
+      redact = input => rdct(input, {min: 10})
     })
     it('short string', () => {
       expect(redact('foo')).to.equal('**********')
@@ -311,7 +311,7 @@ describe('deepRedact()', () => {
   context('with `includeType` option', () => {
     let redact
     beforeEach(() => {
-      redact = input => deepRedact(input, {includeType: true})
+      redact = input => rdct(input, {includeType: true})
     })
     it('short string', () => {
       expect(redact('foo')).to.equal('***** [String]')
@@ -436,7 +436,7 @@ describe('deepRedact()', () => {
   context('with `char` option', () => {
     let redact
     beforeEach(() => {
-      redact = input => deepRedact(input, {char: '?'})
+      redact = input => rdct(input, {char: '?'})
     })
     it('short string', () => {
       expect(redact('foo')).to.equal('?????')
@@ -536,7 +536,7 @@ describe('deepRedact()', () => {
     it('does not allow negative `min`', () => {
       let input = 'foo'
       let expected = 'f*o'
-      let result = deepRedact(input, {min: -3})
+      let result = rdct(input, {min: -3})
       expect(result).to.equal(expected)
     })
     xit('could use more sanity checks')

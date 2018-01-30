@@ -6,7 +6,7 @@
  * @param {number} [options.min=5]
  * @param {string} [options.char=*]
  */
-export default function deepRedact(obj, options) {
+export default function rdct(obj, options) {
   options = options || {}
   const type = Object.prototype.toString.call(obj).slice(8, -1)
   const min = Math.abs(options.min || 5)
@@ -24,13 +24,13 @@ export default function deepRedact(obj, options) {
     return Object.keys(obj).reduce(
       (redacted, key) =>
         Object.assign(redacted, {
-          [key]: deepRedact(obj[key], options)
+          [key]: rdct(obj[key], options)
         }),
       {}
     )
   }
   if (type === 'Array') {
-    return obj.map(o => deepRedact(o, options))
+    return obj.map(o => rdct(o, options))
   }
   if (type === 'String') {
     if (obj.length < min) {
