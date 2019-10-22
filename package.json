@@ -1,11 +1,12 @@
 {
   "name": "rdct",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Deeply redact all the things",
   "main": "dist/rdct.js",
   "browser": "dist/rdct.umd.js",
   "module": "dist/rdct.es.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "dev": "microbundle watch",
     "build": "microbundle",
     "precommit": "lint-staged",
@@ -15,14 +16,14 @@
   },
   "keywords": ["redact", "redaction", "deep redact", "deep redaction"],
   "files": ["index.js", "dist"],
-  "author": "Brian Wendt <brianwendt@outlook.com> (https://bwendt.com)",
+  "author": "Brian Wendt <brian@wendtcode.com> (https://bwendt.com)",
   "license": "MIT",
-  "repository": "whiskeredwonder/rdct",
+  "repository": "wendtcode/rdct",
   "devDependencies": {
     "chai": "4.1.2",
     "husky": "0.14.3",
     "lint-staged": "6.1.0",
-    "microbundle": "0.4.3",
+    "microbundle": "0.11.0",
     "mocha": "5.0.0",
     "prettier": "1.10.2"
   },
@@ -47,5 +48,9 @@
     "jsxBracketSameLine": true,
     "semi": false,
     "singleQuote": true
+  },
+  "resolutions": {
+    "rollup-plugin-typescript2": "0.24.3",
+    "js-yaml": "3.13.1"
   }
 }
