@@ -1,12 +1,11 @@
 {
   "name": "rdct",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Deeply redact all the things",
   "main": "dist/rdct.js",
   "browser": "dist/rdct.umd.js",
   "module": "dist/rdct.es.js",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "dev": "microbundle watch",
     "build": "microbundle",
     "precommit": "lint-staged",
@@ -14,18 +13,26 @@
     "pretest": "npm run build",
     "test": "mocha"
   },
-  "keywords": ["redact", "redaction", "deep redact", "deep redaction"],
-  "files": ["index.js", "dist"],
+  "keywords": [
+    "redact",
+    "redaction",
+    "deep redact",
+    "deep redaction"
+  ],
+  "files": [
+    "index.js",
+    "dist"
+  ],
   "author": "Brian Wendt <brian@wendtcode.com> (https://bwendt.com)",
   "license": "MIT",
   "repository": "wendtcode/rdct",
   "devDependencies": {
-    "chai": "4.1.2",
-    "husky": "0.14.3",
-    "lint-staged": "6.1.0",
-    "microbundle": "0.11.0",
-    "mocha": "5.2.0",
-    "prettier": "1.10.2"
+    "chai": "^4.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "microbundle": "^0.12.0-next.7",
+    "mocha": "^7.1.1",
+    "prettier": "^1.19.1"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -38,19 +45,20 @@
       "browser": true,
       "es6": true
     },
-    "extends": ["prettier"]
+    "extends": [
+      "prettier"
+    ]
   },
   "lint-staged": {
-    "*.{js,json}": ["prettier --write", "git add"]
+    "*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "prettier": {
     "bracketSpacing": false,
     "jsxBracketSameLine": true,
     "semi": false,
     "singleQuote": true
-  },
-  "resolutions": {
-    "rollup-plugin-typescript2": "0.24.3",
-    "js-yaml": "3.13.1"
   }
 }
