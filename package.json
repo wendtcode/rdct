@@ -1,6 +1,6 @@
 {
   "name": "rdct",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Deeply redact all the things",
   "main": "dist/rdct.js",
   "browser": "dist/rdct.umd.js",
@@ -26,6 +26,9 @@
   "author": "Brian Wendt <brian@wendtcode.com> (https://bwendt.com)",
   "license": "MIT",
   "repository": "wendtcode/rdct",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "husky": "^4.2.3",
