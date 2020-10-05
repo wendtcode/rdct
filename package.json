@@ -1,6 +1,6 @@
 {
   "name": "rdct",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Deeply redact all the things",
   "main": "dist/rdct.js",
   "browser": "dist/rdct.umd.js",
