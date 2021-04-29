@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": "wendtcode/rdct",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
