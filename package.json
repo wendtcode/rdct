@@ -1,17 +1,17 @@
 {
   "name": "rdct",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Deeply redact all the things",
   "main": "dist/rdct.js",
   "browser": "dist/rdct.umd.js",
   "module": "dist/rdct.es.js",
+  "source": "src/index.ts",
   "scripts": {
     "dev": "microbundle watch",
     "build": "microbundle",
     "precommit": "lint-staged",
-    "prepare": "npm run build",
-    "pretest": "npm run build",
-    "test": "mocha"
+    "prepare": "microbundle",
+    "test": "jest"
   },
   "keywords": [
     "redact",
@@ -20,22 +20,23 @@
     "deep redaction"
   ],
   "files": [
-    "index.js",
     "dist"
   ],
-  "author": "Brian Wendt <brian@wendtcode.com> (https://bwendt.com)",
+  "author": "Brian Wendt <brian@wendtcode.com> (https://brianwendt.com)",
   "license": "MIT",
   "repository": "wendtcode/rdct",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "@types/jest": "^26.0.23",
     "husky": "^4.2.3",
+    "jest": "^26.6.3",
     "lint-staged": "^10.0.8",
-    "microbundle": "^0.12.0-next.7",
-    "mocha": "^7.1.1",
-    "prettier": "^1.19.1"
+    "microbundle": "^0.13.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
   },
   "eslintConfig": {
     "parserOptions": {
