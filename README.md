@@ -1,4 +1,4 @@
-# redact( obj [, options] ) [![NPM](https://img.shields.io/npm/v/rdct.svg)](https://npmjs.com/package/rdct) [![Build](https://travis-ci.org/whiskeredwonder/rdct.svg?branch=master)](https://travis-ci.org/whiskeredwonder/rdct)
+# redact( obj [, options] ) [![NPM](https://img.shields.io/npm/v/rdct.svg)](https://npmjs.com/package/rdct)
 
 Deeply redact all the things
 

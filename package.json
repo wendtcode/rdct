@@ -1,18 +1,15 @@
 {
   "name": "rdct",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Deeply redact all the things",
-  "main": "./dist/rdct.js",
-  "browser": "./dist/rdct.umd.js",
-  "module": "./dist/rdct.es.js",
-  "types": "./dist/index.d.ts",
-  "source": "./src/index.ts",
+  "type": "module",
+  "main": "dist/rdct.js",
+  "types": "dist/rdct.d.ts",
   "scripts": {
-    "dev": "microbundle watch",
-    "build": "microbundle",
+    "build": "rimraf dist && tsc && vite build",
+    "test": "vitest",
     "precommit": "lint-staged",
-    "prepare": "microbundle",
-    "test": "jest"
+    "prepublishOnly": "pnpm run build"
   },
   "keywords": [
     "redact",
@@ -30,26 +27,18 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "husky": "^4.2.3",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.0.8",
-    "microbundle": "^0.13.0",
-    "prettier": "^1.19.1",
-    "ts-jest": "^26.5.5",
-    "typescript": "^4.2.4"
+    "@types/node": "^20.12.6",
+    "glob": "^10.3.12",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.4",
+    "vite-plugin-dts": "^3.8.1",
+    "vite": "^5.2.0",
+    "vitest": "^1.4.0"
   },
   "eslintConfig": {
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "env": {
-      "browser": true,
-      "es6": true
-    },
     "extends": [
       "prettier"
     ]
